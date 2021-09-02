@@ -1,0 +1,80 @@
+body {
+    background-color: #F1F2F4 !important;
+}
+
+.container {
+    border: 1px solid #2222;
+}
+
+.whole_sec {
+    padding: 25px 30px;
+    border-top: 1px solid #2222;
+    font-size: 22px;
+    border-right: 1px solid #2222;
+}
+
+.link_btn {
+    color: #14A800;
+    font-weight: bold;
+}
+
+.link_btn:hover {
+    text-decoration: underline;
+    color: #14A800;
+}
+
+.time_ago {
+    font-size: 14px;
+}
+
+.zone_icon {
+    font-size: 14px;
+    margin-left: 16px;
+    margin-top: 27px;
+}
+
+.job_description {
+    font-size: 14px;
+}
+
+.clok_icn {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.clok_txt {
+    font-size: 12px;
+    margin-left: 20px;
+    font-weight: normal;
+}
+
+.proj_type {
+    font-size: 14px;
+}
+
+.skills_link {
+    /* background-color: #e9eee7; */
+}
+
+.skills_link a {
+    color: black;
+    font-size: 14px;
+}
+
+.skills_link a:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+.job_activity {
+    font-size: 14px;
+    color: #14A800;
+}
+
+.activiity_txt {
+    font-size: 16px;
+}
+
+.main_label {
+    font-size: 16px;
+}

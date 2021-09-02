@@ -1,0 +1,162 @@
+body {
+    background-color: #F7F7F7
+}
+
+.profile_card {
+    background-color: white;
+}
+
+.enroll_card {
+    margin-top: 30px;
+    background-color: white;
+}
+
+.description_card {
+    margin-top: 30px;
+    background-color: white;
+}
+
+.main_avatr_img {
+    width: 140px !important;
+    height: 140px !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.online_success {
+    color: #46c37b !important;
+    background-color: #fff !important;
+    border: 1px solid #46c37b !important;
+    float: right;
+}
+
+.online_warning {
+    color: #f3b760 !important;
+    background-color: #fff !important;
+    border: 1px solid #f3b760 !important;
+    float: right;
+}
+
+.circle_dot {
+    font-size: 4px;
+    vertical-align: middle;
+    padding-right: 4px;
+}
+
+.seller_name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0e0e0f;
+    text-align: center;
+    display: block;
+    padding-bottom: 10px;
+}
+
+.edit_pencil {
+    cursor: pointer;
+    padding-left: 5px;
+    color: #b2b2b2 !important;
+}
+
+.btn_pencils {
+    margin-top: -14px;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.change_mode {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.part_from {
+    float: left;
+}
+
+.from_country {
+    float: right;
+    margin-left: 95px;
+}
+
+.from_year {
+    float: right;
+    margin-left: 29px;
+}
+
+.learn_logo {
+    width: 70px !important;
+}
+
+.edit_btn_2 {
+    background-color: #b2b2b2 !important;
+    border-radius: 100%;
+    float: right;
+    margin-left: 194px;
+}
+
+.edit_btn_3 {
+    background-color: #b2b2b2 !important;
+    border-radius: 100%;
+    float: right;
+    margin-left: 239px;
+}
+
+.edit_btn_4 {
+    background-color: #b2b2b2 !important;
+    border-radius: 100%;
+    float: right;
+    margin-left: 200px;
+}
+
+.edit_btn_5 {
+    background-color: #b2b2b2 !important;
+    border-radius: 100%;
+    float: right;
+    margin-left: 178px;
+}
+
+.i_color {
+    color: #fff;
+}
+
+.disc_profile {
+    font: 400 16px/24px "Macan", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #62646a;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.grey_icon {
+    color: #b2b2b2;
+}
+
+.edu_edit {
+    color: #b2b2b2;
+}
+
+.certify_edit {
+    color: #b2b2b2;
+}
+
+.bold {
+    font-weight: bold !important;
+}
+
+.social_name {
+    color: #62646a !important;
+}
+
+.lng_edit {
+    visibility: hidden;
+    border: none;
+    border-radius: 50%;
+}
+
+.skill_edit {
+    visibility: hidden;
+    border: none;
+    border-radius: 50%;
+}

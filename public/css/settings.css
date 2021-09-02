@@ -1,0 +1,49 @@
+    .circle_dot {
+        color: #19A463;
+        font-size: 8px;
+        vertical-align: top;
+        margin-left: 4px;
+    }
+    
+    #select_drop {
+        margin-left: 146px !important;
+        width: 49%;
+    }
+    
+    .form_container {
+        background-color: #FFFFFF;
+    }
+    
+    .green_color {
+        color: #19A463;
+    }
+    
+    .green_bc {
+        background-color: #19A463;
+    }
+    
+    ul li {
+        font-size: 12px;
+    }
+    
+    .bold_tag {
+        font-weight: bold;
+    }
+    
+    .buy_connects {
+        margin-top: -17px;
+        margin-left: 18px;
+    }
+    
+    .card_nu {
+        width: 175px;
+    }
+    
+    .img_card {
+        width: 50px;
+    }
+    
+    .balance_header {
+        margin-top: 23px;
+        margin-left: 22px;
+    }

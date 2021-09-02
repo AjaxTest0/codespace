@@ -14,13 +14,33 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+            $table->increments('id')->unsigned(false);
+            $table->string('uuid')->unique()->nullable();
+
+            $table->enum('profile_type', ['customer', 'freelancer'])->default(null);
+            $table->integer('profile_id')->nullable();
+            
             $table->string('email')->unique();
+            $table->string('phone_code')->nullable();
+            $table->string('phone_number')->unique()->nullable();
+            $table->string('password')->nullable();
+
+            $table->enum('user_type', ['user', 'admin'])->default('user');
+
+            $table->timestamp('phone_verified_at')->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+
+            $table->boolean('is_social')->default(false);
+            $table->string('social_id')->nullable();
+            $table->string('social_email')->nullable();
+            $table->enum('social_type', ['facebook', 'google', 'twitter', 'apple'])->nullable();
+            $table->boolean('is_social_password_updated')->default(false);
+            
+            $table->boolean('is_online')->default(false);
+            
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -1,0 +1,30 @@
+.form_container_1 {
+    background-color: #FFFFFF;
+}
+
+.billing_form {
+    margin-top: 4px;
+    margin-left: 26px;
+    margin-bottom: 20px;
+}
+
+#invoice_email {
+    display: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+ul li a {
+    color: rgba(0, 0, 0, 0.658);
+}
+
+ul li :hover {
+    color: black;
+}
+
+ul li :active {
+    border-left: 2px solid #19A463;
+    border-radius: 1px;
+}

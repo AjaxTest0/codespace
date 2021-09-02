@@ -1,0 +1,87 @@
+.whole_sec {
+    padding: 25px 30px;
+    border-top: 2px solid #f1f2f4;
+}
+
+.main_label {
+    font-size: 16px;
+    color: #222222;
+    font-weight: 700;
+}
+
+.main_para {
+    font-size: 14px;
+    color: #222222;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #CA4F3E!important;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #CA4F3E !important;
+}
+
+.main_col {
+    padding-right: 0;
+}
+
+#special_cat {
+    display: none;
+}
+
+.budget_hr {
+    border: 2px solid #14A800;
+    border-radius: 11px;
+    margin: 0%;
+}
+
+.budget_label {
+    text-align: center;
+    margin: 28px 0;
+}
+
+.hourly_txt {
+    font-size: 16px;
+    color: #222222;
+    font-weight: 600;
+    /* padding-right: 78px;
+    padding-left: 68px; */
+    padding: 28px 78px 28px 68px;
+}
+
+.clok_icn {
+    padding-left: 36px;
+}
+
+.budget_range::-webkit-outer-spin-button,
+.budget_range::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* Firefox */
+
+.budget_range[type=number] {
+    -moz-appearance: textfield;
+}
+
+.budget_range {
+    width: 146px;
+}
+
+#hour_rate {
+    display: none;
+}
+
+
+
+.link_btn {
+    color: #14A800;
+}
+
+.link_btn:hover {
+    text-decoration: underline;
+    color: #14A800;
+}
