@@ -6,28 +6,27 @@
 
 
     <link rel="stylesheet" href="{{asset('css/buyerrequest.css')}}">
-    <link rel="stylesheet" href="{{asset('s/plugins/select2/css/select2.min.css')}}">
 
 
 
 
-    @endsection
+@endsection
 
 
-    @section('content')
+@section('content')
 
 
-    <div class="container bg-white" >
+    <div class="container-fluid bg-white" >
         <section class="whole_sec">
             <h1 style="margin: 0;">Describe your job post</h1>
         </section>
-        <form action="">
+        <form action="{{ route('create_job') }}">
             <!-- Describe section -->
             <section class="whole_sec">
                 <div class="form-group ">
                     <label for="example-text-input" class="main_label">Headline</label>
                     <p class="main_para">This helps your job post stand out to the right candidates. It’s the first thing they’ll see, so make it count!</p>
-                    <input type="text" class="form-control form-control-lg w-75" id="example-text-input" name="example-text-input">
+                    <input type="text" class="form-control form-control-lg w-75" id="example-text-input" name="headline">
                 </div>
             </section>
             <!-- Describe section End -->
@@ -37,7 +36,7 @@
                 <div class="form-group ">
                     <label for="example-text-input" class="main_label">Describe your job</label>
                     <p class="main_para">This is how talent figures out what you need and why you’re great to work with!</p>
-                    <textarea class="form-control w-75" id="example-textarea-input" name="example-textarea-input" rows="4" placeholder="Already have a job description. Paste it here!"></textarea>
+                    <textarea class="form-control w-75" id="example-textarea-input" name="description" rows="4" placeholder="Already have a job description. Paste it here!"></textarea>
                     <div class="mt-3">
                         <label for="example-text-input" class="main_label"><i class="fa fa-paperclip "></i>Attach File</label>
                         <input type="file" name="example-file-input-custom">
@@ -45,12 +44,13 @@
                 </div>
             </section>
             <!-- file upload section End -->
+
             <!-- skills section -->
             <section class="whole_sec">
                 <div class="form-group w-75">
                     <label for="example-text-input" class="main_label">Skills</label>
 
-                    <select class="js-select2 form-control " id="example-select2-multiple" name="example-select2-multiple" style="width: 100%;" data-placeholder="Choose Skills" multiple>
+                    <select class="js-select2 form-control " id="example-select2-multiple" name="skill" style="width: 100%;" data-placeholder="Choose Skills" multiple>
                         <option></option>
                         <option value="1">HTML</option>
                         <option value="2" >CSS</option>
@@ -62,6 +62,8 @@
                         <option value="8">React</option>
                         <option value="9">Vue.js</option>
                     </select>
+
+
                 </div>
             </section>
             <!-- skills section End -->
@@ -73,7 +75,7 @@
                 <div class="row w-75 mt-3">
                     <div class="col-sm-6 main_col">
                         <div class="form-group">
-                            <select class="custom-select" id="main_cat" name="example-select-custom">
+                            <select class="custom-select" id="main_cat" name="category">
                                 <option value="" selected disabled>Please select</option>
                                 <option value="1">Web Development</option>
                                 <option value="2">Mobile Development</option>
@@ -84,8 +86,8 @@
                     </div>
                     <div class="col-sm-6 main_col ">
                         <div class="form-group" id="special_cat">
-                            <label>Specialty </label>
-                            <select class="custom-select" name="example-select-custom">
+                            <label>Specialty</label>
+                            <select class="custom-select" name="specialty">
                                 <option value="" selected disabled>Please select</option>
                                 <option value="1">Web Development</option>
                                 <option value="2">Desktop Development</option>
@@ -106,25 +108,28 @@
                 <div class="form-group">
 
                     <div class="custom-control custom-radio custom-control-primary mb-1">
-                        <input type="radio" class="custom-control-input scope_radio large_rad" id="example-radio-custom1" name="example-radio-custom">
+                        <input type="radio" class="custom-control-input scope_radio large_rad" id="example-radio-custom1" name="scope">
                         <label class="custom-control-label" for="example-radio-custom1">Large
                             <div>
                                 <small>Longer term or complex initiatives (ex. design and build a full website) </small>
-                        </div>
-                    </label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-primary mb-1">
-                        <input type="radio" class="custom-control-input scope_radio medium_rad" id="example-radio-custom2" name="example-radio-custom">
-                        <label class="custom-control-label" for="example-radio-custom2">Medium
-                                <div>
-                                    <small>Well-defined projects (ex. a landing page) </small>
                             </div>
-                        </label> </div>
+                        </label>
+                    </div>
+
                     <div class="custom-control custom-radio custom-control-primary mb-1">
-                        <input type="radio" class="custom-control-input scope_radio small_rad" id="example-radio-custom3" name="example-radio-custom">
+                        <input type="radio" class="custom-control-input scope_radio medium_rad" id="example-radio-custom2" name="scope">
+                        <label class="custom-control-label" for="example-radio-custom2">Medium
+                            <div>
+                                <small>Well-defined projects (ex. a landing page) </small>
+                            </div>
+                        </label> 
+                    </div>
+
+                    <div class="custom-control custom-radio custom-control-primary mb-1">
+                        <input type="radio" class="custom-control-input scope_radio small_rad" id="example-radio-custom3" name="scope">
                         <label class="custom-control-label" for="example-radio-custom3">Small
-                                <div>
-                                    <small>Quick and straightforward tasks (ex. update text and images on a webpage) </small>
+                            <div>
+                                <small>Quick and straightforward tasks (ex. update text and images on a webpage) </small>
                             </div>
                         </label>
                     </div>
@@ -135,36 +140,36 @@
                 <div class="form-group project_rad " style="display: none;">
                     <label class="d-block">How long will your work take?</label>
                     <div class="custom-control custom-radio  custom-control-primary proj_large" style="display: none;" id="">
-                        <input type="radio" class="custom-control-input project_rad_in project_large " id="example-radio-custom-inline0" name="example-radio-custom-inline">
+                        <input type="radio" class="custom-control-input project_rad_in project_large " id="example-radio-custom-inline0" name="length">
                         <label class="custom-control-label" for="example-radio-custom-inline0">6 to 9 months</label>
                     </div>
                     <div class="custom-control custom-radio  custom-control-primary proj_large" style="display: none;" id="">
-                        <input type="radio" class="custom-control-input project_rad_in project_large " id="example-radio-custom-inline0" name="example-radio-custom-inline">
+                        <input type="radio" class="custom-control-input project_rad_in project_large " id="example-radio-custom-inline0" name="length">
                         <label class="custom-control-label" for="example-radio-custom-inline0">6 to 9 months</label>
                     </div>
                     <div class="custom-control custom-radio  custom-control-primary proj_large" style="display: none;" id="">
-                        <input type="radio" class="custom-control-input project_rad_in project_large " id="example-radio-custom-inline0" name="example-radio-custom-inline">
+                        <input type="radio" class="custom-control-input project_rad_in project_large " id="example-radio-custom-inline0" name="length">
                         <label class="custom-control-label" for="example-radio-custom-inline0">6 to 9 months</label>
                     </div>
 
                     <div class="custom-control custom-radio  custom-control-primary">
-                        <input type="radio" class="custom-control-input proj_med " id="example-radio-custom-inline1" name="example-radio-custom-inline">
+                        <input type="radio" class="custom-control-input proj_med " id="example-radio-custom-inline1" name="length">
                         <label class="custom-control-label" for="example-radio-custom-inline1">3 to 6 months</label>
                     </div>
                     <div class="custom-control custom-radio  custom-control-primary">
-                        <input type="radio" class="custom-control-input proj_med " id="example-radio-custom-inline1" name="example-radio-custom-inline">
+                        <input type="radio" class="custom-control-input proj_med " id="example-radio-custom-inline1" name="length">
                         <label class="custom-control-label" for="example-radio-custom-inline1">3 to 6 months</label>
                     </div>
                     <div class="custom-control custom-radio  custom-control-primary">
-                        <input type="radio" class="custom-control-input proj_med " id="example-radio-custom-inline1" name="example-radio-custom-inline">
+                        <input type="radio" class="custom-control-input proj_med " id="example-radio-custom-inline1" name="length">
                         <label class="custom-control-label" for="example-radio-custom-inline1">3 to 6 months</label>
                     </div>
                     <div class="custom-control custom-radio  custom-control-primary">
-                        <input type="radio" class="custom-control-input project_rad_in" id="example-radio-custom-inline2" name="example-radio-custom-inline">
+                        <input type="radio" class="custom-control-input project_rad_in" id="example-radio-custom-inline2" name="length">
                         <label class="custom-control-label" for="example-radio-custom-inline2"> 1 to 3 months</label>
                     </div>
                     <div class="custom-control custom-radio  custom-control-primary">
-                        <input type="radio" class="custom-control-input project_rad_in" id="example-radio-custom-inline3" name="example-radio-custom-inline">
+                        <input type="radio" class="custom-control-input project_rad_in" id="example-radio-custom-inline3" name="length">
                         <label class="custom-control-label" for="example-radio-custom-inline3">Less than 1 month</label>
                     </div>
 
@@ -236,7 +241,7 @@
     </div>
 
 
-    @endsection
+@endsection
 
 
 

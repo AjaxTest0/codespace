@@ -20,7 +20,7 @@ class CreateProfilesTable extends Migration
             $table->integer('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->enum('profile_type', ['customer', 'freelancer'])->default(null);
+            $table->enum('profile_type', ['client', 'freelancer'])->default(null);
 
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();

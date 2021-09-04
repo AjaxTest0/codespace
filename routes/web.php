@@ -21,6 +21,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/create_job', 'JobController@createJob')->name('create_job');
+
 Route::get('/', function () {
     return view('welcome');
 });
