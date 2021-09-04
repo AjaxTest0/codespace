@@ -50,10 +50,20 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'first_name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'first_name'   => ['required', 'string', 'max:255'],
+            'last_name'    => ['required', 'string', 'max:255'],
+
+            'email'        => ['required', 'string', 'email', 'max:255', 'unique:users'],
+
+            'phone_code'   => ['required_without:email', 'number', 'min:8',],
+            'phone_no'     => ['required_without:email', 'number', 'min:8',],
+
+            'password'     => ['required', 'string', 'min:8', 'confirmed'],
+
+            'profile_type' => ['required', 'string'],
+            'dob'          => ['required', 'date',],
+            'gender'       => ['required', 'string'],
+            'username'     => ['required', 'string', 'unique:profiles'],
         ]);
     }
 
@@ -65,11 +75,25 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            // 'last_name' => $data['last_name'],
-            // 'first_name' => $data['first_name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+        $user = User::create([
+            'email'     => $data['email'],
+            'password'  => Hash::make($data['password']),
+            'is_online' => 1,
         ]);
+
+        if($user){
+
+            $profile = Profile::create([
+                'first_name'   => $data['first_name'],
+                'last_name'    => $data['last_name'],
+                'profile_type' => $data['profile_type'],
+                'dob'          => $data['dob'],
+                'gender'       => $data['gender'],
+                'username'     => $data['username'],
+            ]);
+        }
+
+        return $user->with('profile');
+
     }
 }
