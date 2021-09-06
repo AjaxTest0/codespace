@@ -40,97 +40,55 @@
                       
                     </div>
                     <div>
-                        <!-- post 1 -->
-                        <div class="pl-3 pr-3 jobs_box">
-                            <div class="row ">
-                                <div class="col-sm-8">
-                                    <span class="green_color">Looking for NFT Marketplace Developer</span>
-                                </div>
-                                <div class="col-sm-4 mt-1">
-                                <span class="normal">$13.00-$30.00 
-                                   
-                                </span>
-                                <a href="">  
-                                    <i class="fas fa-bookmark ml-5 "></i>
-                                     </a> 
-                                    
-                                  
-
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <span class="bold"> Est. Time: </span>
-                                <span class="normal">  3 to 6 months, Less than 30 hrs/week  </span><br>
-                                <span class="bold">  Posted : </span>
-                                <span class="normal">  24 minutes ago</span>
-                                
-                                <p style="margin: 0;">Looking for an NFT experienced developer to assist in building
-                                     out a marketplace/look-up service. This marketplace will be for 
-                                     collectors to verify their item is authentic. </p>
-                                    
-                                <div class="badges mt-2 mb-3">
-                                <span class="badge badge-pill badge-light border">Web Apllication</span>
-                                <span class="badge badge-pill badge-light border">Laravel Apllication</span>
-                                <span class="badge badge-pill badge-light border">Web HTML</span>
-                                </div>
-                                     
-                                <span class="bold" >Proposals:</span>
-                                <span class="normal">Less than 5</span><br>
-
-                                <span class="normal"><i class="far fa-check-circle green_color"></i> Payment verified</span>
-                                <i class="fa fa-star rate_ic"></i>
-                                <i class="fa fa-star rate_ic"></i>
-                                <i class="fa fa-star rate_ic"></i>
-                                <i class="fa fa-star rate_ic"></i>
-                                <i class="fa fa-star-half-alt rate_ic" ></i>    
-                                 <span class="normal"> $30+ spent</span> <br> 
-                                <span><i class="fa fa-map-marker-alt normal "></i> <strong>United states</strong></span>                 </div>
-                        </div>
-                        <hr>
+                        @foreach ($jobs as $key => $job)
                         <!-- post 2 -->
-                        <div class="pl-3 pr-3 jobs_box">
-                            <div class="row ">
-                                <div class="col-sm-8">
-                                    <span class="green_color">Looking for NFT Marketplace Developer</span>
-                                </div>
-                                <div class="col-sm-4 mt-1">
-                                <span class="normal">$13.00-$30.00 
-                                   
-                                </span>
-                                <a href="">  
-                                    <i class="fas fa-bookmark ml-5 "></i>
-                                     </a> 
-                                </div>
-                            </div>
-                            <div class="mt-3">
-                                <span class="bold"> Est. Time: </span>
-                                <span class="normal">  3 to 6 months, Less than 30 hrs/week  </span><br>
-                                <span class="bold">  Posted : </span>
-                                <span class="normal">  24 minutes ago</span>
-                                
-                                <p style="margin: 0;">Looking for an NFT experienced developer to assist in building
-                                     out a marketplace/look-up service. This marketplace will be for 
-                                     collectors to verify their item is authentic. </p>
-                                    
-                                <div class="badges mt-2 mb-3">
-                                <span class="badge badge-pill badge-light border">Web Apllication</span>
-                                <span class="badge badge-pill badge-light border">Laravel Apllication</span>
-                                <span class="badge badge-pill badge-light border">Web HTML</span>
-                                </div>
-                                     
-                                <span class="bold" >Proposals:</span>
-                                <span class="normal">Less than 5</span><br>
+                        <form action ="{{route('single_job',$job->id)}}" method="GET">
+                            @csrf
+                            <div class="pl-3 pr-3 jobs_box">
+                                <div class="row ">
+                                    <div class="col-sm-8">
+                                        <span class="green_color">{{$job->headline}}</span>
+                                    </div>
+                                    <div class="col-sm-4 mt-1">
+                                        <span class="normal">{{$job->budget}} 
 
-                                <span class="normal"><i class="far fa-check-circle green_color"></i> Payment verified</span>
-                                <i class="fa fa-star rate_ic"></i>
-                                <i class="fa fa-star rate_ic"></i>
-                                <i class="fa fa-star rate_ic"></i>
-                                <i class="fa fa-star rate_ic"></i>
-                                <i class="fa fa-star-half-alt rate_ic" ></i>    
-                                 <span class="normal"> $30+ spent</span> <br> 
-                                <span><i class="fa fa-map-marker-alt normal "></i> <strong>United states</strong></span>                 </div>
-                        </div>
+                                        </span>
+                                        <a href="">  
+                                            <i class="fas fa-bookmark ml-5 "></i>
+                                        </a> 
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <span class="bold"> Est. Time: </span>
+                                    <span class="normal">  {{$job->length}}  </span><br>
+                                    <span class="bold">  Posted : </span>
+                                    <span class="normal">  {{$job->created_at}}</span>
+
+                                    <p style="margin: 0;">{{$job->description}}</p>
+                                    
+                                    <div class="badges mt-2 mb-3">
+                                        <span class="badge badge-pill badge-light border">{{$job->skill}}</span>
+                                    </div>
+
+                                    <span class="bold" >Proposals:</span>
+                                    <span class="normal">Less than 5</span><br>
+
+                                    <span class="normal"><i class="far fa-check-circle green_color"></i> Payment verified</span>
+                                    <i class="fa fa-star rate_ic"></i>
+                                    <i class="fa fa-star rate_ic"></i>
+                                    <i class="fa fa-star rate_ic"></i>
+                                    <i class="fa fa-star rate_ic"></i>
+                                    <i class="fa fa-star-half-alt rate_ic" ></i>    
+                                    <span class="normal"> $30+ spent</span> <br> 
+                                    <span>
+                                        <i class="fa fa-map-marker-alt normal "></i> 
+                                        <strong>United states</strong></span>
+                                </div>
+                                    <button class="btn btn-success m-1" type="submit">view job</button>
+                            </div>
+                        </form>
                         <hr>
+                        @endforeach
                         
                     </div>
 

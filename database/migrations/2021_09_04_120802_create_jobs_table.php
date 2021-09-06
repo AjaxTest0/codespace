@@ -14,8 +14,26 @@ class CreateJobsTable extends Migration
     public function up()
     {
         Schema::create('jobs', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->unsigned(false);
+
+            $table->integer('profile_id')->nullable();
+            $table->foreign('profile_id')->references('id')->on('profiles')->onUpdate('cascade')->onDelete('cascade');
+
+            $table->integer('freelancer_id')->nullable();
+            $table->foreign('freelancer_id')->references('id')->on('profiles')->onUpdate('cascade')->onDelete('cascade');
+            
+            $table->string('headline')->nullable();
+            $table->string('description')->nullable();
+            $table->string('file')->nullable();
+            $table->string('skill')->nullable();
+            $table->string('category')->nullable();
+            $table->string('scope')->nullable();
+            $table->string('budget')->nullable();
+            $table->string('length')->nullable();
+            $table->enum('status',['accepted','draft','active','completed'])->nullable();
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -21,9 +21,18 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/create_job', 'JobController@createJob')->name('create_job');
-
 Route::get('/', function () {
+    return view('ihome');
+})->name('ihome');
+
+
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+//job
+	Route::post('/create_job', 'JobController@createJob')->name('create_job');
+	Route::get('/single_job/{job?}', 'JobController@singleJob')->name('single_job');
+	Route::get('/find_job', 'JobController@findJob')->name('findJob');
+
+Route::get('/welcome', function () {
     return view('welcome');
 });
 Route::get('1', function () {
@@ -32,15 +41,16 @@ Route::get('1', function () {
 Route::get('2', function () {
     return view('billing');
 });
-Route::get('3', function () {
+Route::get('/post_job', function () {
     return view('buyerrequest');
-});
+})->name('post_job');
 Route::get('4', function () {
     return view('category');
 });
-Route::get('5', function () {
-    return view('findwork');
-});
+// Route::get('/find_job', function () {
+//     return view('findwork');
+// })->name('find_job');
+
 Route::get('6', function () {
     return view('ihome');
 });
@@ -55,9 +65,6 @@ Route::get('9', function () {
 });
 Route::get('10', function () {
     return view('signup_old');
-});
-Route::get('11', function () {
-    return view('singlebid');
 });
 Route::get('12', function () {
     return view('singlepost');

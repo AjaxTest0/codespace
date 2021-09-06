@@ -4,10 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Job;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
 {
+    
+    
     /**
+    
+
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -33,9 +38,27 @@ class JobController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function createJob(Request $request)
     {
-        //
+        $request->merge(['profile_id' => Auth::user()->profile->id]);
+        $request->merge(['status' => 'active']);
+
+        $job = Job::create($request->except('_token'));
+
+        return view('singlebid',['job' => $job]);
+    }
+
+    public function findJob()
+    {
+
+        $jobs = Job::all();
+
+        return view('findwork',['jobs' => $jobs]);
+    }
+
+    public function singleJob(Job $job)
+    {
+        return view('singlebid',['job' => $job]);
     }
 
     /**

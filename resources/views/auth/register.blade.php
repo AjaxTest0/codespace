@@ -100,8 +100,8 @@
 
                                             <div class="form-group">
                                                 <select name="gender" id="cars" class="form-control form-control-lg form-control-alt @error('gender') is-invalid @enderror">
-                                                  <option value="client">Male</option>
-                                                  <option value="freelancer">Female</option>
+                                                  <option value="male">Male</option>
+                                                  <option value="female">Female</option>
                                                 </select>
                                                @error('gender')
                                                 <span class="invalid-feedback" role="alert">

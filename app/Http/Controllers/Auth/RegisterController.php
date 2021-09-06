@@ -81,6 +81,7 @@ class RegisterController extends Controller
             'is_online' => 1,
         ]);
 
+
         if($user){
 
             $profile = Profile::create([
@@ -90,12 +91,13 @@ class RegisterController extends Controller
                 'dob'          => $data['dob'],
                 'gender'       => $data['gender'],
                 'username'     => $data['username'],
+                'user_id'     => $user->id,
             ]);
         }
 
-        User::update(['profile_id' => $profile->id]);
+        User::where('id',$user->id)->update(['profile_id' => $profile->id]);
 
-        return $user->with('profile');
+        return $user;
 
     }
 }
