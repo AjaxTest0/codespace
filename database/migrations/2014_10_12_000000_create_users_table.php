@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->increments('id')->unsigned(false);
             $table->string('uuid')->unique()->nullable();
 
-            $table->enum('profile_type', ['customer', 'freelancer'])->default(null);
+            $table->enum('profile_type', ['client', 'freelancer'])->default(null);
             $table->integer('profile_id')->nullable();
             
             $table->string('email')->unique();
