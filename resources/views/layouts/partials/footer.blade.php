@@ -1,6 +1,7 @@
        <!-- Footer Start -->
-      <div class="footer">
-        <div class="container-fluid">
+    <footer class="">
+        <div class="footer">
+            <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-widget">
@@ -71,8 +72,8 @@
                 </div>
             </div>
                 <a href="#" class="back-to-top"><i class="fa fa-chevron-up" ></i></a>
-
+            </div>
         </div>
-    </div>
+    </footer>
     <!-- Footer End -->
 

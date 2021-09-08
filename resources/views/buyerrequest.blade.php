@@ -16,7 +16,8 @@
 @section('content')
 
 
-    <div class="container-fluid bg-white" >
+
+    <div class="container bg-white" >
         <section class="whole_sec">
             <h1 style="margin: 0;">Describe your job post</h1>
         </section>

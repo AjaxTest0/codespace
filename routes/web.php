@@ -28,11 +28,16 @@ Route::get('/', function () {
 
 
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
 //job
-    Route::post('/create_job'       , 'JobController@createJob')->name('create_job');
-    Route::get('/single_job/{job?}' , 'JobController@singleJob')->name('single_job');
-    Route::get('/find_job'          , 'JobController@findJob')->name('find_job');
-    Route::post('/job_request'       , 'JobController@jobRequest')->name('job_request');
+    Route::post('/create_job'                         , 'JobController@createJob')->name('create_job');
+    Route::post('/job_request'                        , 'JobController@jobRequest')->name('job_request');
+    
+    Route::get('/single_job/{job?}'                   , 'JobController@singleJob')->name('single_job');
+    Route::get('/find_job/{id?}'                      , 'JobController@findJob')->name('find_job');
+    Route::get('/view_purposal{job?}'                 , 'JobController@getPurposal')->name('get_purposal');
+    Route::get('/change_status/{job?}/{status?}'      , 'JobController@changeStatus')->name('change_status');
+    Route::get('/accept_job/{job_purpose?}/{status?}' , 'JobController@jobPurposal')->name('accept_job');
 
 Route::get('/welcome', function () {
     return view('welcome');

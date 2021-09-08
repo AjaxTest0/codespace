@@ -11,6 +11,7 @@
           @auth
           @if(Auth::user()->profile->profile_type == 'client')
           <a href="{{route('post_job')}}">Post a Job</a>
+          <a href="{{route('find_job',Auth::user()->profile->id)}}">My Job</a>
           @elseif(Auth::user()->profile->profile_type == 'freelancer')
           <a href="{{route('find_job')}}">Find a Job</a>
           @endif

@@ -30,21 +30,20 @@
         <div class="row">
             
             <!-- Center part -->
-            <div class="col-lg-8 ">
+            <div class="col-lg-12 ">
                
-                <div class="bg-white mt-4 pt-2">
-                    <div class="row container">
-                        <div class="col-sm-11">
+                <div class="bg-white mt-4 pt-2 shadow">
+                    <div class="row container p-3">
+                        <div class="col-sm-11 ">
                             <h1>My Feed</h1>
                         </div>
-                      
                     </div>
-                    <div>
+                    <div class="p-3">
                         @foreach ($jobs as $key => $job)
                         <!-- post 2 -->
                         <form action ="{{route('single_job',$job->id)}}" method="GET">
                             @csrf
-                            <div class="pl-3 pr-3 jobs_box">
+                            <div class="pl-3 pr-3 jobs_box p-5">
                                 <div class="row ">
                                     <div class="col-sm-8">
                                         <span class="green_color">{{$job->headline}}</span>

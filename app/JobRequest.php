@@ -11,11 +11,11 @@ class JobRequest extends Model
 
     public function job(){
 
-    	return $this->belongsTo('\App\Job','id','job_id');
+    	return $this->belongsTo('\App\Job','job_id','id');
     }
 
     public function profile(){
 
-    	return $this->belongsTo('\App\Profile','id','profile_id');
+    	return $this->belongsTo('\App\Profile','profile_id','id');
     }
 }

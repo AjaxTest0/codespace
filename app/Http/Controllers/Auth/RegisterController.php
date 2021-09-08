@@ -91,11 +91,14 @@ class RegisterController extends Controller
                 'dob'          => $data['dob'],
                 'gender'       => $data['gender'],
                 'username'     => $data['username'],
-                'user_id'     => $user->id,
+                'user_id'      => $user->id,
             ]);
         }
 
-        User::where('id',$user->id)->update(['profile_id' => $profile->id]);
+        User::where('id',$user->id)->update([
+            'profile_id'   => $profile->id,
+            'profile_type' => $profile->profile_type
+        ]);
 
         return $user;
 

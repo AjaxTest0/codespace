@@ -18,9 +18,33 @@ class JobController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function changeStatus(Job $job,$status)
     {
-        //
+        $job->update(['status' => $status]);
+
+        return redirect()->back();   
+    }
+
+    public function jobPurposal(JobRequest $job_purpose,$status)
+    {
+     
+        if($status == 'accepted'){
+            $job_purpose->job->update(['freelancer_id' => $job_purpose->profile_id]);       
+            $job_purpose->job->update(['status' => $status]);       
+            $job_purpose->update(['status' => $status]);
+        }
+                   
+        if($status == 'interview'){
+
+            $job_purpose->job->update(['freelancer_id' => $job_purpose->profile_id]);    
+            $job_purpose->update(['status' => $status]);       
+        }
+
+        if($status == 'cancelled')
+            $job_purpose->update(['status' => $status]);
+
+
+        return redirect()->back();   
     }
 
     /**
@@ -50,10 +74,15 @@ class JobController extends Controller
         return redirect()->route('single_job',['job' => $job]);
     }
 
-    public function findJob()
+    public function findJob($id = null)
     {
+        $jobs = Job::orderBy('created_at','DESC');
 
-        $jobs = Job::orderBy('created_at','DESC')->get();
+        if(NULL != $id)
+            $jobs = $jobs->where('profile_id',$id);
+
+        $jobs = $jobs->get();
+
 
         return view('findwork',['jobs' => $jobs]);
     }
@@ -76,9 +105,10 @@ class JobController extends Controller
      * @param  \App\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function show(Job $job)
+    public function getPurposal(Job $job)
     {
-        //
+        $purposals = JobRequest::where('job_id',$job->id)->get();
+        return view('purposals',['purposals' => $purposals]);
     }
 
     /**

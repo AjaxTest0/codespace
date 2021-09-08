@@ -57,10 +57,10 @@
                     </button>
                     @endif
                     
-                    @if(Auth::user()->profile->profile_type == $job->profile_id)
-                    <button type="button" class="btn btn-rounded btn-success mb-3 pr-4 pl-4" data-toggle="modal" data-target="#exampleModal">
+                    @if(Auth::user()->profile->id == $job->profile_id)
+                    <a href=" {{route('get_purposal',$job->id)}}" type="button" class="btn btn-rounded btn-success mb-3 pr-4 pl-4">
                         View all Purposals
-                    </button>
+                    </a>
                     @endif
                     
                     <!-- <button type="button" class="btn btn-outline-success btn-rounded  js-click-ripple-enabled pr-4 pl-4 h_icon">
