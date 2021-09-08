@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Job;
+use App\JobRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -42,16 +43,17 @@ class JobController extends Controller
     {
         $request->merge(['profile_id' => Auth::user()->profile->id]);
         $request->merge(['status' => 'active']);
+        $request->merge(['skill' => implode(" , ",$request->skill)]);
 
         $job = Job::create($request->except('_token'));
 
-        return view('singlebid',['job' => $job]);
+        return redirect()->route('single_job',['job' => $job]);
     }
 
     public function findJob()
     {
 
-        $jobs = Job::all();
+        $jobs = Job::orderBy('created_at','DESC')->get();
 
         return view('findwork',['jobs' => $jobs]);
     }
@@ -59,6 +61,13 @@ class JobController extends Controller
     public function singleJob(Job $job)
     {
         return view('singlebid',['job' => $job]);
+    }
+
+    public function jobRequest(Request $request)
+    {
+        $request->merge(['profile_id' => Auth::user()->profile->id]);
+        $purposal = JobRequest::create($request->except('_token'));
+        return redirect()->route('find_job');
     }
 
     /**

@@ -22,15 +22,17 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', function () {
+	
     return view('ihome');
 })->name('ihome');
 
 
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 //job
-	Route::post('/create_job', 'JobController@createJob')->name('create_job');
-	Route::get('/single_job/{job?}', 'JobController@singleJob')->name('single_job');
-	Route::get('/find_job', 'JobController@findJob')->name('findJob');
+    Route::post('/create_job'       , 'JobController@createJob')->name('create_job');
+    Route::get('/single_job/{job?}' , 'JobController@singleJob')->name('single_job');
+    Route::get('/find_job'          , 'JobController@findJob')->name('find_job');
+    Route::post('/job_request'       , 'JobController@jobRequest')->name('job_request');
 
 Route::get('/welcome', function () {
     return view('welcome');
@@ -44,6 +46,7 @@ Route::get('2', function () {
 Route::get('/post_job', function () {
     return view('buyerrequest');
 })->name('post_job');
+
 Route::get('4', function () {
     return view('category');
 });

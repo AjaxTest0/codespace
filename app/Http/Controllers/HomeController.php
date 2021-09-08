@@ -25,6 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return Auth::user()->profile->profile_type == 'client' ?  view('ihome') : view('profile');  
+        if(Auth::check())
+            return Auth::user()->profile->profile_type == 'freelancer' ?  view('profile') : view('ihome');
+        else
+            return view('ihome');
     }
 }

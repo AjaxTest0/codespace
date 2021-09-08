@@ -7,16 +7,16 @@
 
 <!-- Page Container -->
 
-<div id="page-container">
+<div id="page-container mb-5">
 
     <!-- Main Container -->
     <main id="main-container">
 
         <!-- Page Content -->
         <div class="hero-static">
-            <div class="content">
+            <div class="content-fluid">
                 <div class="row justify-content-center">
-                    <div class="col-md-8 col-lg-6 col-xl-4">
+                    <div class="col-md-8 col-lg-8 col-xl-8">
                         <!-- Sign Up Block -->
                         <div class="block block-themed block-fx-shadow mb-0">
                             <div class="block-header bg-success">
@@ -30,7 +30,7 @@
                             </div>
                             <div class="block-content">
                                 <div class="p-sm-3 px-lg-4 py-lg-5">
-                                    <h1 class="mb-2">World News</h1>
+                                    <h1 class="mb-2">Code Space</h1>
                                     <p>Please fill the following details to create a new account.</p>
 
                                     <form class="js-validation-signup" action="{{ route('register') }}" method="POST">
@@ -166,7 +166,7 @@
 <!-- END Main Container -->
 </div>
 <!-- END Page Container -->
-
+ 
 <!-- Terms Modal -->
 <div class="modal fade" id="one-signup-terms" tabindex="-1" role="dialog" aria-labelledby="one-signup-terms" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-popout" role="document">

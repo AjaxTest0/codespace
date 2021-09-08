@@ -20,20 +20,6 @@
                     Make bright ideas happen
                 </h1>
                 <p class="paragraph_header">Find the best freelancers to deliver your&nbsp;projects</p>
-                <form action="be_pages_generic_search.html" method="POST">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search..">
-                        <div class="input-group-append">
-                            <span class="input-group-text">
-                            <i class="fa fa-fw fa-search"></i>
-                        </span>
-                        </div>
-                    </div>
-                </form>
-                <label class="mt-3">Popular skills:</label>
-                <a href=""> <span class="badge badge-danger">Wordpress</span></a>
-                <a href=""> <span class="badge badge-danger">Graphics</span></a>
-                <a href=""> <span class="badge badge-danger">Logo design</span></a>
 
             </div>
 
@@ -129,9 +115,9 @@
                     <i class="fa fa-check  check_btn mr-4 mt-1"> </i>
                     <p>Money back guarantee and anti-fraud protection</p>
                 </div>
-                <button type="button" class="btn btn-lg btn-danger mr-1 mb-3">
+                <a href="{{route('register')}}" type="button" class="btn btn-lg btn-danger mr-1 mb-3">
                          Start Now For Free
-                    </button>
+                </a>
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-12">
@@ -183,7 +169,7 @@
 
 
     <!-- -------------------------------cards sections trending offers---------------------- -->
-    <section class="mt-5 pb-4" style="background-color: rgb(248, 251, 252);">
+<!--     <section class="mt-5 pb-4" style="background-color: rgb(248, 251, 252);">
         <div class="container">
             <h1 class="header_2 mb-4">
                 Trending offers
@@ -293,13 +279,13 @@
         </button>
             </div>
         </div>
-    </section>
+    </section> -->
 
 
 
 
     <!-- -------------------------------cards sections expert freelancers---------------------- -->
-    <section class="mt-5 pb-4" style="background-color: rgb(248, 251, 252);">
+<!--     <section class="mt-5 pb-4" style="background-color: rgb(248, 251, 252);">
         <div class="container">
             <h1 class="header_2 mb-4">
                 Trending offers
@@ -397,7 +383,7 @@
             <button type="button" class="btn btn-md btn-light mr-1 mb-3 mt-3 cat_btn">
             ALL FREELANCERS<i class="fa fa-long-arrow-alt-right  ml-1"></i>
         </button>
-    </section>
+    </section> -->
 
 
 
@@ -434,9 +420,9 @@
                         <p style="color: #fff; padding-top: 15px;">Grow your business</p>
                         <h1 class="display-4 pr-5 grow_text">Trusted globally by over 1 million businesses, small to large</h1>
 
-                        <button type="button" class="btn btn-lg btn-danger mr-1 mb-3 mt-3">
-                        Start Now For Free
-                   </button>
+                        <a href="{{route('register')}}" type="button" class="btn btn-lg btn-danger mr-1 mb-3 mt-3">
+                            Start Now For Free
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12  " style=box-sizing: border-box;>
@@ -467,9 +453,9 @@
                         <p>There's never been a better time to take yourself online and start making money from your very own fine-tuned set of skills.</p>
                         <p>Work wherever suits you, choose full-time, part-time or flexi-time. On PeoplePerHour you remain in control of everything — including your price.</p>
 
-                        <button type="button " class="btn btn-lg btn-light mr-1 mb-3 mt-3 " style="color:#8CD9E8 ;">
-                    Join As A Freelancer
-               </button>
+                        <a href="{{route('register')}}" type="button " class="btn btn-lg btn-light mr-1 mb-3 mt-3 " style="color:#8CD9E8 ;">
+                            Join As A Freelancer
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 " style=box-sizing: border-box;>

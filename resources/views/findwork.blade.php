@@ -64,7 +64,7 @@
                                     <span class="bold">  Posted : </span>
                                     <span class="normal">  {{$job->created_at}}</span>
 
-                                    <p style="margin: 0;">{{$job->description}}</p>
+                                    <p style="margin: 0;" class="text-justify">{{ \Illuminate\Support\Str::limit($job->description, 230, $end='...')}}</p>
                                     
                                     <div class="badges mt-2 mb-3">
                                         <span class="badge badge-pill badge-light border">{{$job->skill}}</span>

@@ -22,7 +22,7 @@
                 <!-- Describe section -->
                 <section class="whole_sec">
 
-                    <div class="job_description">
+                    <div class="job_description text-justify">
                         {{$job->description}}
                     </div>
                 </section>
@@ -31,9 +31,6 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <i class="fa fa-tag fa-tag-sm clok_icn"> {{$job->budget}} <br> <small class="clok_txt">Fixed price</small></i> <br>
-                        </div>
-                        <div class="col-sm-4">
-                            <i class="far fa-calendar-minus clok_icn"> {{$job->length??NULL}} <br> <small class="clok_txt">Project Length</small></i> <br>
                         </div>
                         <div class="col-sm-4">
                             <i class="fa fa-cubes clok_icn">  {{$job->scope}} <br>  <small class="clok_txt"> looking for a mix of <br><small class="clok_txt">  experience and value</small></small></i>
@@ -51,11 +48,28 @@
 
 
                 </section>
-                <section class="whole_sec">
+            </div>
+            <div class="col-sm-3 pt-4 cols">
+                <section>
+                    @if(Auth::user()->profile->profile_type == 'freelancer')
+                    <button type="button" class="btn btn-rounded btn-success mb-3 pr-4 pl-4" data-toggle="modal" data-target="#exampleModal">
+                        Send Purposal
+                    </button>
+                    @endif
+                    
+                    @if(Auth::user()->profile->profile_type == $job->profile_id)
+                    <button type="button" class="btn btn-rounded btn-success mb-3 pr-4 pl-4" data-toggle="modal" data-target="#exampleModal">
+                        View all Purposals
+                    </button>
+                    @endif
+                    
+                    <!-- <button type="button" class="btn btn-outline-success btn-rounded  js-click-ripple-enabled pr-4 pl-4 h_icon">
+                        <i class="far fa-heart "></i> Save Post
+                   </button> -->
                     <label class="main_label" for="example-text-input">Activity on this job</label>
                     <div>
                         <span>
-                                <span class="activiity_txt"> Proposals: <i class="fa fa-question-circle job_activity" data-toggle="popover" data-animation="true" data-placement="top" title="" data-content="This range includes relevant proposals, but does not include proposals that are withdrawn, declined, or archived. Please note that all proposals are accessible to clients on their applicants page."></i></span>
+                                <span class="activiity_txt"> Proposals: {{$job->jobPurposals->count()}} <i class="fa fa-question-circle job_activity" data-toggle="popover" data-animation="true" data-placement="top" title="" data-content="This range includes relevant proposals, but does not include proposals that are withdrawn, declined, or archived. Please note that all proposals are accessible to clients on their applicants page."></i></span>
                         <small class="activiity_txt"></small>
                         </span>
                     </div>
@@ -68,48 +82,34 @@
                         <small class="activiity_txt">  0</small>
                         </span>
                     </div>
-                   
-                   </section>
-            </div>
-            <div class="col-sm-3 pt-4 cols">
-                <section>
-                    <button type="button" class="btn btn-rounded btn-success mb-3 pr-4 pl-4">
-                        Send Purposal
-                   </button>
-                    <button type="button" class="btn btn-outline-success btn-rounded  js-click-ripple-enabled pr-4 pl-4 h_icon">
-                        <i class="far fa-heart "></i> Save Post
-                   </button>
                 </section>
             </div>
         </div>
     </div>
 
-    <div class="modal fade " id="modal-block-slideright " tabindex="-1 " role="dialog " aria-labelledby="modal-block-slideright " aria-hidden="true ">
-        <div class="modal-dialog modal-dialog-slideright " role="document ">
-            <div class="modal-content ">
-                <div class="block block-themed block-transparent mb-0 ">
-                    <div class="block-header bg-primary-dark ">
-                        <h3 class="block-title ">Modal Title</h3>
-                        <div class="block-options ">
-                            <button type="button " class="btn-block-option " data-dismiss="modal " aria-label="Close ">
-                                    <i class="fa fa-fw fa-times "></i>
-                                </button>
-                        </div>
-                    </div>
-                    <div class="block-content font-size-sm ">
-                        <p>Dolor posuere proin blandit accumsan senectus netus nullam curae, ornare laoreet adipiscing luctus mauris adipiscing pretium eget fermentum, tristique lobortis est ut metus lobortis tortor tincidunt himenaeos habitant quis dictumst
-                            proin odio sagittis purus mi, nec taciti vestibulum quis in sit varius lorem sit metus mi.</p>
-                        <p>Dolor posuere proin blandit accumsan senectus netus nullam curae, ornare laoreet adipiscing luctus mauris adipiscing pretium eget fermentum, tristique lobortis est ut metus lobortis tortor tincidunt himenaeos habitant quis dictumst
-                            proin odio sagittis purus mi, nec taciti vestibulum quis in sit varius lorem sit metus mi.</p>
-                    </div>
-                    <div class="block-content block-content-full text-right border-top ">
-                        <button type="button " class="btn btn-sm btn-light " data-dismiss="modal ">Close</button>
-                        <button type="button " class="btn btn-sm btn-primary " data-dismiss="modal "><i class="fa fa-check mr-1 "></i>Ok</button>
-                    </div>
-                </div>
-            </div>
+    <!-- Modal -->
+    <form action="{{ route('job_request') }}" method="post">
+        @csrf
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><strong>  Send Purposal for </strong> {{$job->headline}} </h5>
+            <input type="hidden" name="job_id" value="{{$job->id}}">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <textarea class="form-control w-100" id="example-textarea-input" name="purposal" rows="4" placeholder="Purpose Your Idea and suitable budget" required></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Send Purposal</button>
+          </div>
         </div>
-    </div>
+      </div>
+        </div>
+    </form>
     @endsection
 
 

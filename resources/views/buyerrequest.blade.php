@@ -51,7 +51,7 @@
                 <div class="form-group w-75">
                     <label for="example-text-input" class="main_label">Skills</label>
 
-                    <select class="js-select2 form-control " id="example-select2-multiple" name="skill" style="width: 100%;" data-placeholder="Choose Skills" multiple required>
+                    <select class="js-select2 form-control " id="example-select2-multiple" name="skill[]" style="width: 100%;" data-placeholder="Choose Skills" multiple required>
                         <option></option>
                         <option value="HTML">HTML</option>
                         <option value="CSS" >CSS</option>

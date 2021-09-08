@@ -23,7 +23,7 @@ class CreateJobsTable extends Migration
             $table->foreign('freelancer_id')->references('id')->on('profiles')->onUpdate('cascade')->onDelete('cascade');
             
             $table->string('headline')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('file')->nullable();
             $table->string('skill')->nullable();
             $table->string('category')->nullable();
